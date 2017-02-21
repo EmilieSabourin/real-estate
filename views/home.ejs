@@ -1,15 +1,76 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 
 <body>
-    <p>Welcome to
-        <%= message %>
-    </p>
+
+    <div style="background:#0B0B3B !important" class="jumbotron">
+        <p style="text-align:center; color:#01A9DB; font-weight:bold; font-size:50px;">Good Deal ? ... Or not?</p>
+    </div>
+
+    <div style="text-align:center;" class="form-group">
+        <form class="form-inline" action="/call" method="GET">
+            <label style="font-size:23px; color:#0B0B3B !important;"> Please enter the URL adress of the deal : </label>
+            <input type="text" name="urlLBC">
+            <button style="color: #01A9DB; background-color: black; border-radius : 20px;" type="submit">Send</button>
+            <form/>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" style="text-align:center; font-size:20px;" action="/call" method="GET">
+                <div style="background:#0B0B3B !important; border-radius : 20px;" class="card-header">
+                    <h2 style="color:#01A9DB; font-weight:bold;">Real estate on "Le bon coin"</h2>
+                </div>
+                <div style="background:#CEECF5 !important; border-radius : 20px;" class="card-block">
+
+                    <label style="color:#0B0B3B;"> Price : <%= prix %> €</label>
+                    <br>
+                    <label style="color:#0B0B3B;"> Localization : <%= ville %> </label>
+                    <br>
+                    <label style="color:#0B0B3B;"> Type : <%= typeL %> </label>
+                    <br>
+                    <label style="color:#0B0B3B;"> Size : <%= surface %> m² that to say <%= (prix/surface) - ((prix/surface)%1) %> €/m²<br></label>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="text-align:center; font-size:40px;" action="/call" method="GET">
+                <div style="background:#0B0B3B !important; border-radius : 20px;" class="card-header">
+                    <h2 style="color:#01A9DB; font-weight:bold;">Verdict</h2>
+                </div>
+                <div style="background:#CEECF5 !important; border-radius : 20px; font-family: Helvetica; font-weight:bold;" class="card-block">
+                    <br><br>
+                    <%= ccl %>
+                        <br><br><br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="text-align:center; font-size:20px;" action="/call" method="GET">
+                <div style="background:#0B0B3B !important; border-radius : 20px;" class="card-header">
+                    <h2 style="color:#01A9DB; font-weight:bold;">Result "le meilleur agent"</h2>
+                </div>
+                <div style="background:#CEECF5 !important; border-radius : 20px;" class="card-block">
+                    <br><br>
+                    <label style="color:#0B0B3B;"> Mean of the price in this city : <%= prixComp %> €</label>
+                    <br><br><br><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
